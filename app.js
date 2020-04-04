@@ -11,7 +11,7 @@ const campsiteRouter = require('./routes/campsiteRouter');
 const promotionRouter = require('./routes/promotionRouter');
 const partnerRouter = require('./routes/partnerRouter');
 const uploadRouter = require('./routes/uploadRouter');
-
+const favoriteRouter = require('./routes/favoriteRouter');
 
 const mongoose = require('mongoose');
 
@@ -46,7 +46,6 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser('12345-6789-09876-54321'));
 
 app.use(passport.initialize());
 
@@ -59,6 +58,7 @@ app.use('/campsites', campsiteRouter);
 app.use('/promotions', promotionRouter);
 app.use('/partners', partnerRouter);
 app.use('/imageUpload', uploadRouter);
+app.use('/favorites', favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
